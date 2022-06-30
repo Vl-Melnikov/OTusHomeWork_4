@@ -38,17 +38,11 @@
             throw new NullReferenceException("Стек пустой");
         }
     }
-    //public static Stack Concat(params object[] input)
-    //{
-
-
-    //    var str = input as string[];
-
-    //    Stack myStack = null;
-    //    myStack.Add(str);
-    //    return myStack;
-    //    //myStack = new Stack();
-    //    //myStack.Merge(myStack);
-    //    //return myStack;
-    //}
+    public static Stack Concat(params object[] inputs)
+    {
+        Stack myStack = new Stack();
+        foreach (Stack elem in inputs)
+            myStack.Merge(elem);
+        return myStack;
+    }
 }

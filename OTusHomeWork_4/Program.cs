@@ -1,5 +1,4 @@
-﻿
-try
+﻿try
 {
     var s = new Stack("a", "b", "c");
     // size = 3, Top = 'c'
@@ -23,8 +22,8 @@ try
     Console.WriteLine($"size = {s.Size}, Top = {(s.Top == null ? "null" : s.Top)}");
     s.Pop();
 
-    //s = Stack.Concat(new Stack("a", "b", "c"), new Stack("1", "2", "3"), new Stack("А", "Б", "В"));
-    //Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
+    s = Stack.Concat(new Stack("a", "b", "c"), new Stack("1", "2", "3"), new Stack("А", "Б", "В"));
+    Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
 }
 catch (NullReferenceException ex)
 {
