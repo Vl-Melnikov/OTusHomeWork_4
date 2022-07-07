@@ -1,9 +1,18 @@
 ﻿public class Stack
 {
-    private class StackItem
-    {
+    //private class StackItem<T>
+    //    //хранит текущее значение элемента стека
+    //    //ссылку на предыдущий элемент в стеке
+    //{
+    //    public StackItem(T data)
+    //    {
+    //        Data = data;
+    //    }
+    //    public T Data { get; set; }
+    //    public StackItem<T> Next { get; set; }
 
-    }
+    //}
+
     private List<string> _data { get; }
     public int Size // количество элементов стека
     {
@@ -17,10 +26,7 @@
         _data = new List<string>(inputData.Length);
         _data.AddRange(inputData);
     }
-    public string? Top // значение верхнего элемента из стека. Если стек пустой - возвращать null
-    {
-        get { return _data.LastOrDefault(); }
-    }
+    public string? Top => _data.LastOrDefault();// значение верхнего элемента из стека. Если стек пустой - возвращать null
     public void Add(string item) // добавляет элемент в стэк
     {
         _data.Add(item);
@@ -29,7 +35,7 @@
     {
         if (Size > 0)
         {
-            var item = _data.LastOrDefault();
+            var item = _data.Last();
             _data.Remove(item);
             return item;
         }
@@ -38,7 +44,7 @@
             throw new NullReferenceException("Стек пустой");
         }
     }
-    public static Stack Concat(params object[] inputs)
+    public static Stack Concat(params Stack[] inputs)
     {
         Stack myStack = new Stack();
         foreach (Stack elem in inputs)
